@@ -1,0 +1,941 @@
+body {
+  background: linear-gradient(
+    162deg,
+    rgb(114, 114, 114) 0%,
+    rgb(131, 131, 131) 100%
+  );
+  position: relative;
+  background-size: 100% 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: system-ui;
+  color: rgb(211, 211, 211);
+  user-select: none;
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.loadout-container {
+  position: relative;
+  width: 165vh;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background-color: hsla(0, 0%, 0%, 0.25);
+
+  .loadout-details-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 11.5%;
+
+    .loadout-name {
+      margin-left: 4vh;
+      margin-top: 3vh;
+      font-size: 6vh;
+      color: white;
+    }
+
+    .loadout-capacity-container {
+      position: relative;
+      width: 75%;
+      height: 5vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      margin-right: 8.5vh;
+      align-items: center;
+      margin-top: 7.5vh;
+
+      .capacity-amount-text {
+        margin-left: 2vh;
+        margin-bottom: 2vh;
+        font-size: 3.5vh;
+        font-weight: bold;
+      }
+
+      .capacity-indicator-container {
+        width: 60%;
+        height: 1.25vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .capacity-indicator {
+        width: 9.5%;
+        height: 100%;
+        background-color: #353535bd;
+
+        &.is-Active {
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  .loadout-items-container {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 12vh;
+    background-color: #35353583;
+
+    .weapons-container {
+      width: 97%;
+      height: 45%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .weapon-container {
+        width: 49.3%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .weapon {
+          width: 75%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgb(37, 37, 37, 0.75) 100%
+          );
+          box-shadow: inset 0 0 0 3px #646464;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: inset 0 0 0 4px #ffffff;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.75) 0%,
+              rgba(65, 62, 60, 0.75) 100%
+            );
+          }
+
+          .slot-name {
+            font-size: 2.5vh;
+            margin-left: 1vh;
+            margin-top: 0.5vh;
+          }
+
+          img {
+            width: 75%;
+            height: 50%;
+            margin: auto;
+          }
+
+          .weapon-name {
+            font-size: 2vh;
+            margin-left: 2.25vh;
+            margin-bottom: 1.5vh;
+          }
+        }
+
+        .attachments {
+          width: 23%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: rgba(0, 0, 0, 0.2);
+
+          .slot-name {
+            width: 100%;
+            height: 13%;
+            text-align: center;
+            background-color: rgb(41, 41, 41);
+            font-size: 2.5vh;
+          }
+
+          .attachment-container {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .attachment-item {
+              width: 60%;
+              height: 75%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.75) 0%,
+                rgb(37, 37, 37, 0.75) 100%
+              );
+              box-shadow: inset 0 0 0 2px #646464;
+
+              &:hover {
+                cursor: pointer;
+                box-shadow: inset 0 0 0 3px #ffffff;
+                background: linear-gradient(
+                  180deg,
+                  rgba(0, 0, 0, 0.75) 0%,
+                  rgba(65, 62, 60, 0.75) 100%
+                );
+              }
+
+              img {
+                width: 75%;
+                height: 75%;
+              }
+            }
+
+            .attachment-name {
+              text-align: center;
+              font-size: 1.5vh;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+
+    .equipment-container {
+      width: 97%;
+      height: 45%;
+      display: flex;
+      margin-top: 2vh;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .perks-container {
+        width: 34.5%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .perk-container {
+          position: relative;
+          width: 31.5%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.2);
+
+          .slot-name {
+            width: 100%;
+            height: 14%;
+            text-align: center;
+            background-color: rgb(41, 41, 41);
+            font-size: 3vh;
+            margin-top: -1vh;
+          }
+
+          .perk {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .perk-item {
+              width: 60%;
+              height: 75%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.75) 0%,
+                rgb(37, 37, 37, 0.75) 100%
+              );
+              box-shadow: inset 0 0 0 2px #646464;
+
+              &:hover {
+                cursor: pointer;
+                box-shadow: inset 0 0 0 3px #ffffff;
+                background: linear-gradient(
+                  180deg,
+                  rgba(0, 0, 0, 0.75) 0%,
+                  rgba(65, 62, 60, 0.75) 100%
+                );
+              }
+
+              img {
+                width: 75%;
+                height: 75%;
+              }
+            }
+
+            .perk-name {
+              text-align: center;
+              font-size: 1.25vh;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .throwables-container {
+        width: 28%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .throwable-container {
+          width: 100%;
+          height: 48%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: rgba(0, 0, 0, 0.2);
+
+          .slot-name {
+            width: 100%;
+            height: 29%;
+            text-align: center;
+            background-color: rgb(41, 41, 41);
+            font-size: 3vh;
+          }
+
+          .slots {
+            width: 100%;
+            height: 67%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            .throwable {
+              width: 40%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-left: -8vh;
+              margin-right: -8vh;
+
+              .throwable-item {
+                width: 45%;
+                height: 75%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(
+                  180deg,
+                  rgba(0, 0, 0, 0.75) 0%,
+                  rgb(37, 37, 37, 0.75) 100%
+                );
+                box-shadow: inset 0 0 0 2px #646464;
+
+                &:hover {
+                  cursor: pointer;
+                  box-shadow: inset 0 0 0 3px #ffffff;
+                  background: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.75) 0%,
+                    rgba(65, 62, 60, 0.75) 100%
+                  );
+                }
+
+                img {
+                  width: 75%;
+                  height: 75%;
+                }
+              }
+
+              .throwable-name {
+                text-align: center;
+                font-size: 1.25vh;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+
+      .enhancements-container {
+        width: 34.5%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.2);
+
+        .slot-name {
+          width: 100%;
+          height: 14%;
+          text-align: center;
+          background-color: rgb(41, 41, 41);
+          font-size: 3vh;
+          margin-top: -1vh;
+        }
+
+        .enhancement-container {
+          width: 93%;
+          height: 25%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgb(37, 37, 37, 0.75) 100%
+          );
+          box-shadow: inset 0 0 0 2px #646464;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: inset 0 0 0 3px #ffffff;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.75) 0%,
+              rgba(65, 62, 60, 0.75) 100%
+            );
+          }
+
+          .enhancement-info {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            justify-content: center;align-items: center;
+            flex-direction: column;
+
+            .enhancement-title {
+              font-size: 2.5vh;
+            }
+
+            .enhancement-description {
+              font-size: 1.5vh;
+              margin-left: 1.25vh;
+            }
+          }
+
+          img {
+            width: 15%;
+            height: 75%;
+          }
+        }
+      }
+    }
+  }
+
+  .is-Disabled {
+    opacity: 50%;
+    pointer-events: none;
+
+    img {
+      width: 50% !important;
+      height: 50% !important;
+      filter: brightness(0) saturate(100%) invert(30%) sepia(2%) saturate(0%)
+        hue-rotate(337deg) brightness(99%) contrast(95%);
+    }
+  }
+
+  .loadout-item-selection-container {
+    width: 90%;
+    height: 80%;
+    display: none;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    margin-top: 12vh;
+    background-color: #35353583;
+  
+    .items-container {
+      width: 35%;
+      height: 92%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-right: 2vh;
+      background-color: rgba(0, 0, 0, 0.2);
+  
+      .items {
+        width: 95%;
+        height: 87%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+  
+        .slot-item {
+          width: 92%;
+          height: 75%;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgb(37, 37, 37, 0.75) 100%
+          );
+          box-shadow: inset 0 0 0 2px #646464;
+  
+          &:hover {
+            cursor: pointer;
+            box-shadow: inset 0 0 0 3px #ffffff;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.75) 0%,
+              rgba(65, 62, 60, 0.75) 100%
+            );
+          }
+  
+          img {
+            width: 30%;
+            height: 60%;
+          }
+  
+          .item-name {
+            font-size: 1.5vh;
+          }
+  
+          .is-Disabled {
+            opacity: 50%;
+            pointer-events: none;
+  
+            img {
+              width: 50% !important;
+              height: 50% !important;
+              filter: brightness(0) saturate(100%) invert(30%) sepia(2%)
+                saturate(0%) hue-rotate(337deg) brightness(99%) contrast(95%);
+            }
+          }
+        }
+      }
+    }
+  
+    .items-information-container {
+      width: 60%;
+      height: 92%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: rgba(0, 0, 0, 0.2);
+  
+      .item-information-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+  
+        .item-information {
+          width: 97%;
+          height: 35%;
+          display: flex;
+          flex-direction: column;
+          background-color: rgba(0, 0, 0, 0.2);
+  
+          .item-name {
+            font-size: 4vh;
+            margin-left: 1vh;
+          }
+  
+          .item-description {
+            font-size: 3vh;
+            margin-left: 2vh;
+          }
+        }
+  
+        .item-image {
+          width: 97%;
+          height: 55%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+  
+          img {
+            margin: auto;
+            width: 40%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  
+    .slot-title {
+      width: 100%;
+      height: 9%;
+      text-align: center;
+      background-color: rgb(41, 41, 41);
+      font-size: 4vh;
+    }
+  }
+  
+  .loadout-weapon-selection-container {
+    width: 90%;
+    height: 80%;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 12vh;
+    background-color: #35353583;
+  
+    .weapon-types-container {
+      width: 97%;
+      height: 12%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #35353583;
+
+      .weapon-option-type {
+        width: 19.5%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.75) 0%,
+          rgb(37, 37, 37, 0.75) 100%
+        );
+        box-shadow: inset 0 0 0 2px #646464;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: inset 0 0 0 3px #ffffff;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(65, 62, 60, 0.75) 100%
+          );
+        }
+
+        .is-Disabled {
+          opacity: 50%;
+          pointer-events: none;
+        }
+
+        .weapon-option-name {
+          font-size: 2vh;
+        }
+      }
+    }
+  
+    .weapon-details-container {
+      width: 97%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+  
+      .weapons-container {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-right: 2vh;
+        background-color: rgba(0, 0, 0, 0.2);
+  
+        .items {
+          width: 95%;
+          height: 87%;
+          margin: auto;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+  
+          .slot-item {
+            width: 92%;
+            height: 75%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.75) 0%,
+              rgb(37, 37, 37, 0.75) 100%
+            );
+            box-shadow: inset 0 0 0 2px #646464;
+  
+            &:hover {
+              cursor: pointer;
+              box-shadow: inset 0 0 0 3px #ffffff;
+              background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.75) 0%,
+                rgba(65, 62, 60, 0.75) 100%
+              );
+            }
+  
+            img {
+              width: 40%;
+              height: 40%;
+            }
+  
+            .item-name {
+              font-size: 1.5vh;
+              margin-top: 1vh;
+            }
+  
+            .is-Disabled {
+              opacity: 50%;
+              pointer-events: none;
+  
+              img {
+                width: 50% !important;
+                height: 50% !important;
+                filter: brightness(0) saturate(100%) invert(30%) sepia(2%)
+                  saturate(0%) hue-rotate(337deg) brightness(99%) contrast(95%);
+              }
+            }
+          }
+        }
+      }
+  
+      .weapons-information-container {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: rgba(0, 0, 0, 0.2);
+  
+        .item-information-container {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+  
+          .item-information {
+            width: 97%;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.2);
+  
+            .item-name {
+              font-size: 4vh;
+              margin-left: 1vh;
+            }
+  
+            .item-description {
+              font-size: 3vh;
+              margin-left: 2vh;
+            }
+          }
+  
+          .item-image {
+            width: 97%;
+            height: 55%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+  
+            img {
+              margin: auto;
+              width: 40%;
+              height: 60%;
+            }
+          }
+        }
+      }
+    }
+  
+    .slot-title {
+      width: 100%;
+      height: 10%;
+      text-align: center;
+      background-color: rgb(41, 41, 41);
+      font-size: 4vh;
+    }
+  }
+}
+
+.loadout-overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.568);
+  z-index: 5;
+
+  .loadout-replacement-container {
+    width: 125vh;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(
+      180deg,
+      rgb(25, 25, 25) 0%,
+      rgb(55, 55, 55) 100%
+    );
+    box-shadow: inset 0 0 0 3px #646464;
+
+    .replacement-title {
+      font-size: 4.5vh;
+      margin-left: 2vh;
+      margin-top: 1vh;
+    }
+
+    .replacement-description {
+      font-size: 2.5vh;
+      margin-left: 4vh;
+    }
+
+    .replacement-items-container {
+      width: 95%;
+      height: 75%;
+      background-color: hsla(0, 0%, 0%, 0.3);
+      margin: auto;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+
+      .slot-item {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        background: linear-gradient(
+          180deg,
+          rgb(25, 25, 25) 0%,
+          rgb(55, 55, 55) 100%
+        );
+        box-shadow: inset 0 0 0 3px #646464;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: inset 0 0 0 3px #ffffff;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(65, 62, 60, 0.75) 100%
+          );
+        }
+  
+        img {
+          width: 80%;
+          height: 60%;
+        }
+  
+        &.weapon {
+          justify-content: space-around;
+
+          img {
+            width: 90%;
+            height: 30%;
+            margin-top: 5vh;
+          }
+        }
+        .item-name {
+          font-size: 1.5vh;
+          background-color: hsla(0, 0%, 0%, 0.5);
+          width: 90%;
+          height: 3.25vh;
+        }
+      }
+    }
+
+    .control {
+      margin: auto;
+      margin-bottom: 2vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0vh 1.5vh;
+      background-color: rgba(41, 41, 41, 0.5);
+  
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(41, 41, 41, 0.75);
+      }
+  
+      .control-key {
+        font-size: 2.5vh;
+        color: #ffab0e;
+        font-weight: bold;
+        margin-right: 0.5vh;
+      }
+  
+      .control-description {
+        font-size: 2vh;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.loadout-controls-container {
+  width: 160vh;
+  height: 5vh;
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+
+  .control {
+    width: auto;
+    height: auto;
+    margin-right: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0vh 1.5vh;
+    background-color: rgba(41, 41, 41, 0.5);
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(41, 41, 41, 0.75);
+    }
+
+    .control-key {
+      font-size: 3vh;
+      color: #ffab0e;
+      font-weight: bold;
+      margin-right: 0.5vh;
+    }
+
+    .control-description {
+      font-size: 2.5vh;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

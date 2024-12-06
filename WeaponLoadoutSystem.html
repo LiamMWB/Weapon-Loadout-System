@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weapon Loadout System UI</title>
+    <link rel="icon" type="image/png" href="assets/food/apple.png" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Scripts -->
+    <script src="js/Helpers/DomFactory.js"></script>
+    <script src="js/Helpers/Util.js"></script>
+    <script src="js/Data/WeaponDetails.js"></script>
+    <script src="js/Screens/ItemReplacementScreen.js"></script>
+    <script src="js/Screens/ItemSelectionScreen.js"></script>
+    <script src="js/Screens/WeaponSelectionScreen.js"></script>
+    <script src="js/Screens/MainLoadoutScreen.js"></script>
+  </head>
+
+  <body>
+    <div class="loadout-container" id="loadoutContainer" aria-label="Loadout Container">
+      <div class="loadout-details-container">
+        <div class="loadout-name">Loadout 1</div>
+
+        <div class="loadout-capacity-container">
+          <div class="capacity-indicator-container" id="capacityIndicatorContainer">
+            <!-- Loadout Capacity Indicators will be displayed here -->
+          </div>
+          <span class="capacity-amount-text" id="capacityAmountText">0/10</span>
+        </div>
+      </div>
+
+      <div class="loadout-items-container" id="itemsContainer">
+        <div class="weapons-container" id="weaponsContainer">
+          <!-- Loadout Weapons will be displayed here -->
+        </div>
+        <div class="equipment-container">
+          <div class="perks-container" id="perksContainer">
+            <!-- Loadout Perks will be displayed here -->
+          </div>
+
+          <div class="throwables-container" id="throwablesContainer">
+            <!-- Loadout Throwables will be displayed here -->
+          </div>
+
+          <div class="enhancements-container" id="enhancementsContainer">
+            <!-- Loadout Enhancements will be displayed here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="loadout-item-selection-container" id="itemSelectionContainer">
+        <div class="items-container">
+          <span class="slot-title" id="itemSelectionSlotTitle"></span>
+          <div class="items" id="selectionItems">
+            <!-- Loadout Selection Items will be displayed here -->
+          </div>
+        </div>
+        <div class="items-information-container">
+          <span class="slot-title" id="itemSelectionInfoSlotTitle"></span>
+          <div class="item-information-container">
+            <div class="item-image">
+              <img src="" alt="" id="itemSelectionItemImg" />
+            </div>
+            <div class="item-information">
+              <span class="item-name" id="itemSelectionItemName"></span>
+              <span class="item-description" id="itemSelectionItemDescription"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loadout-weapon-selection-container" id="weaponSelectionContainer">
+        <div class="weapon-types-container" id="weaponTypeOptionsContainer"></div>
+        <div class="weapon-details-container">
+          <div class="weapons-container">
+            <span class="slot-title">Weapon Selection</span>
+            <div class="items" id="weaponSelectionItems">
+              <!-- Loadout Selection Weapons will be displayed here -->
+            </div>
+          </div>
+          <div class="weapons-information-container">
+            <span class="slot-title" id="weaponSelectionInfoSlotTitle"></span>
+            <div class="item-information-container">
+              <div class="item-image">
+                <img src="" alt="" id="weaponSelectionItemImg" />
+              </div>
+              <div class="item-information">
+                <span class="item-name" id="weaponSelectionItemName"></span>
+                <span class="item-description"id="weaponSelectionItemDescription"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loadout-overlay-container" style="display: none" id="loadoutOverlayContainer">
+      <div class="loadout-replacement-container">
+        <span class="replacement-title">Too Many Items</span>
+        <span class="replacement-description">You have hit the maximum amount of items within this loadout. Please choose an item to replace.</span>
+        <div class="replacement-items-container" id="replaceableItemsContainer">
+          <!-- Replaceable Items will be displayed here -->
+        </div>
+        
+        <div class="control" id="overlayCancelControlPrompt">
+          <span class="control-key">C</span>
+          <span class="control-description">Cancel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="loadout-controls-container" id="loadoutControlsContainer"> 
+      <div class="control" style="display: none" id="clearAllControlPrompt">
+        <span class="control-key">C</span>
+        <span class="control-description">Clear All</span>
+      </div>
+      <div class="control" style="display: none" id="clearControlPrompt">
+        <span class="control-key">Right Click</span>
+        <span class="control-description">Clear</span>
+      </div>
+      <div class="control" style="display: none" id="backControlPrompt">
+        <span class="control-key">ESC</span>
+        <span class="control-description">Back</span>
+      </div>
+    </div>
+  </body>
+</html>

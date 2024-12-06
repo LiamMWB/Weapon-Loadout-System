@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES5",                     // Ensures compatibility with older browsers.
+        "module": "none",                    // Avoids module systems like ES modules or CommonJS.
+        "rootDir": "./src",                  // Specifies where your TypeScript source files are.
+        "outDir": "./js",                    // Specifies where the compiled JavaScript files go.
+        "strict": true,                      // Enables all strict type-checking options.
+        "forceConsistentCasingInFileNames": true, // Enforces consistent file naming.
+        "skipLibCheck": true,                // Skips type-checking of declaration files.
+        "removeComments": true               // Optional: Removes comments in the compiled files.
+    },
+    "include": [
+        "./src/**/*.ts"                      // Includes all TypeScript files under the `src` folder.
+    ],
+    "exclude": [
+        "node_modules",                      // Excludes the `node_modules` folder.
+        "**/*.test.ts"                       // Optional: Excludes test files, if any.
+    ]
+}
